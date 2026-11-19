@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerTrack - Job Application Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="top-header">
+        <div class="brand">Career<span>Track</span></div>
+        <p class="header-note">Your job search, organised.</p>
+        <div id="authActions" class="auth-actions" hidden>
+            <span id="signedInLabel"></span>
+            <button id="logoutButton" class="logout-button" type="button">Log out</button>
+        </div>
+    </header>
+
+
+    <section id="authScreen" class="auth-screen">
+        <div class="auth-card">
+            <div class="auth-brand-mark">CT</div>
+            <p class="eyebrow">WELCOME TO CAREERTRACK</p>
+            <h1 id="authHeading">Sign in to your account</h1>
+            <p class="auth-description">Keep your profile and job applications saved securely to your account on this
+                device.</p>
+            <div class="auth-tabs" role="tablist">
+                <button id="signInTab" type="button" class="auth-tab active">Sign in</button>
+                <button id="signUpTab" type="button" class="auth-tab">Create account</button>
+            </div>
+            <form id="signInForm" class="auth-form">
+                <label for="signInEmail">Email address</label>
+                <input id="signInEmail" type="email" autocomplete="email" required placeholder="you@example.com">
+                <label for="signInPassword">Password</label>
+                <input id="signInPassword" type="password" autocomplete="current-password" required
+                    placeholder="Your password">
+                <button class="auth-submit" type="submit">Sign in</button>
+            </form>
+            <form id="signUpForm" class="auth-form" hidden>
+                <label for="signUpName">Full name</label>
+                <input id="signUpName" type="text" autocomplete="name" required placeholder="Your full name">
+                <label for="signUpEmail">Email address</label>
+                <input id="signUpEmail" type="email" autocomplete="email" required placeholder="you@example.com">
+                <label for="signUpPassword">Create password</label>
+                <input id="signUpPassword" type="password" autocomplete="new-password" minlength="8" required
+                    placeholder="At least 8 characters">
+                <label for="signUpConfirm">Confirm password</label>
+                <input id="signUpConfirm" type="password" autocomplete="new-password" minlength="8" required
+                    placeholder="Re-enter your password">
+                <button class="auth-submit" type="submit">Create account</button>
+            </form>
+            <p id="authMessage" class="auth-message" role="status"></p>
+            <p class="auth-note">Demo note: accounts and passwords are stored in this browser only. This is not
+                production-grade authentication.</p>
+        </div>
+    </section>
+
+
+    <main id="dashboard" class="page" hidden>
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR CAREER DASHBOARD</p>
+                <h1>Keep your next move <span>on track.</span></h1>
+                <p class="welcome-text">Manage applications, follow your progress and stay ready for your next
+                    opportunity.</p>
+            </div>
+            <div class="welcome-mark">CT</div>
+        </section>
+
+
+        <section class="stats">
+            <div class="stat-card">
+                <p>Total applications</p>
+                <h2 id="totalCount">0</h2><span>Jobs in your tracker</span>
+            </div>
+            <div class="stat-card">
+                <p>Interviews</p>
+                <h2 id="interviewCount">0</h2><span>Opportunities to shine</span>
+            </div>
+            <div class="stat-card">
+                <p>Offers</p>
+                <h2 id="offerCount">0</h2><span>Great progress</span>
+            </div>
+            <div class="stat-card">
+                <p>Saved jobs</p>
+                <h2 id="savedCount">0</h2><span>Roles to revisit</span>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">GET ORGANISED</p>
+                    <h2>Your profile</h2>
+                </div>
+                <p class="section-description">Keep your basic career details in one place.</p>
+            </div>
+            <form id="profileForm" class="panel form-grid">
+                <div><label for="fullName">Full name</label><input type="text" id="fullName"
+                        placeholder="e.g. Alex Morgan"></div>
+                <div><label for="email">Email address</label><input type="email" id="email"
+                        placeholder="alex@example.com"></div>
+                <div class="full-width"><label for="skills">Skills</label><textarea id="skills" rows="2"
+                        placeholder="e.g. HTML, communication, teamwork"></textarea></div>
+                <div class="full-width"><button type="submit">Save profile</button><span id="profileMessage"
+                        class="message"></span></div>
+            </form>
+        </section>
+        <section class="content-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">ADD A NEW OPPORTUNITY</p>
+                    <h2>Job application details</h2>
+                </div>
+            </div>
+            <form id="jobForm" class="panel form-grid">
+                <div><label for="company">Company name *</label><input type="text" id="company" required
+                        placeholder="Company name"></div>
+                <div><label for="jobTitle">Job title *</label><input type="text" id="jobTitle" required
+                        placeholder="e.g. Web Developer"></div>
+                <div><label for="location">Location</label><input type="text" id="location"
+                        placeholder="City or Remote"></div>
+                <div><label for="jobType">Job type</label><select id="jobType">
+                        <option>Full-time</option>
+                        <option>Part-time</option>
+                        <option>Internship</option>
+                        <option>Contract</option>
+                    </select></div>
+                <div><label for="applicationDate">Application date</label><input type="date" id="applicationDate"></div>
+                <div><label for="jobStatus">Current status</label><select id="jobStatus">
+                        <option>Wishlist</option>
+                        <option>Applied</option>
+                        <option>Under Review</option>
+                        <option>Interview</option>
+                        <option>Offer</option>
+                        <option>Rejected</option>
+                        <option>Withdrawn</option>
+                    </select></div>
+                <div class="full-width"><label for="notes">Notes</label><textarea id="notes" rows="2"
+                        placeholder="Add a reminder or useful detail"></textarea></div>
+                <div class="full-width"><button type="submit">+ Add application</button><span class="message"
+                        id="formMessage"></span></div>
+            </form>
+        </section>
+        <section class="content-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR JOB SEARCH</p>
+                    <h2>Applications</h2>
+                </div>
+                <p class="section-description">Search, update or save your opportunities.</p>
+            </div>
+            <div class="panel">
+                <div class="tools-row"><input type="text" id="searchBox"
+                        placeholder="Search company, title or location"><select id="filterStatus"
+                        aria-label="Filter by status">
+                        <option value="All">All statuses</option>
+                        <option>Wishlist</option>
+                        <option>Applied</option>
+                        <option>Under Review</option>
+                        <option>Interview</option>
+                        <option>Offer</option>
+                        <option>Rejected</option>
+                        <option>Withdrawn</option>
+                    </select></div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Company & role</th>
+                                <th>Location</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jobTable">
+                            <tr>
+                                <td colspan="5" class="empty-state">No applications yet. Add your first job above.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-footer" id="showingCount">Showing 0 applications</p>
+            </div>
+        </section>
+        <section class="content-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">RECENT UPDATES</p>
+                    <h2>Activity</h2>
+                </div>
+            </div>
+            <div class="panel">
+                <ul id="activityList" class="activity-list">
+                    <li>No activity yet.</li>
+                </ul>
+            </div>
+        </section>
+        <footer>CareerTrack · A simple way to stay organised in your job search.</footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
